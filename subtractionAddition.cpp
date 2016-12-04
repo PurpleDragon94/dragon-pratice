@@ -1,39 +1,73 @@
 # include <iostream>
 # include <cmath>
-# include <cstdlib>
 
 using namespace std;
 
+void addition();
+void subtraction();
+
 int main()
 {
-	int number, add;
-
+	char letter;
+	
 	cout << "This program will perform an addition or subtraction operation" << endl
-	     << "Please enter the number 1 for addition, or 2 for subtraction:" << endl;
-	cin >> number;
-
-	if (number == 1)
-	{
-		int num1 , num2;
-		cout << "Please enter two numbers to be added together:" << endl;
-		cin >> num1;
-		cin >> num2;
-
-		add = num1 + num2;
-
-		cout << num1 << " plus " << num2 << " equals " << add << "." << endl;
+	     << "Please enter the letter a for addition, or s for subtraction:" << endl;
+	cin >> letter;
+	
+    if (letter == 'a' || 'A')
+       addition();
+       
+    else if(letter == 's' || 'S')
+       subtraction();
+       
+    else
+    {
+    	cout << "please enter the letter 'a' or 's': " << endl;
+    	cin >> letter;
 	}
-	else
-	{   int num3 , num4 , sub;
-	    cout << "Please enter two numbers to be subtracted:" << endl;
-	    cin >> num3;
-	    cin >> num4;
+	
+	system("pause");
+	return 0;
+}
 
-	    sub = num3 - num4;
+void addition()
+{
+	double rep, num;
+	double counter = 0;
+	double total = 0;
+	cout << "Please enter how many numbers you would like to add together:" << endl;
+	cin >> rep; // number of number to be added
 
-	    cout << num3 << " minus " << num4 << " equals " << sub << "." << endl;
-     }
+	while (counter < rep)
+	{
+		cout << "please enter a number:" << endl;
+		cin >> num;
+		total += num;
+		
+		counter = counter++;
+	}
+	cout << "You added " << rep << " numbers together." << endl;
+	cout << "The total is " << total << " ." << endl;
+}
 
-   system("pause");
-   return 0;
+
+void subtraction()
+{
+	double rep, num;
+	double counter = 0;
+	double total = 0;
+	cout << "Please enter how many numbers you would like to subtract:" << endl;
+	cin >> rep; // number of numbers to be subtracted
+
+	while (counter < rep)
+	{
+		cout << "please enter a number:" << endl;
+		cin >> num;
+		total -= num;
+		
+		counter = counter++;
+	}
+	
+	cout << "you subtracted " << rep << "numbers." << endl;
+	cout << "The total is " << total << " ." << endl;
 }
